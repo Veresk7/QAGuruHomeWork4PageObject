@@ -1,4 +1,4 @@
-package TextBoxPageObject.Pages.Components;
+package textboxpageobject.pages.components;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -13,8 +13,10 @@ public class ResultFormComponent {
         return this;
     }
 
-    public ResultFormComponent checkResult(String negativeCheck) {
-        element(".modal-dialog").shouldNotBe(visible);
+    public ResultFormComponent checkResult(String value) {
+        if(value.equals("negativeCheck")) {
+            element(".modal-dialog").shouldNotBe(visible);
+        }
 
         return this;
     }

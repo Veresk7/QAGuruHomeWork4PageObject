@@ -1,6 +1,6 @@
-package TextBoxPageObject.Pages;
+package textboxpageobject.pages;
 
-import TextBoxPageObject.Pages.Components.CalendarComponent;
+import textboxpageobject.pages.components.CalendarComponent;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selectors.byText;
@@ -22,7 +22,6 @@ public class RegistrationPage {
             inputStateWindow = element("#react-select-3-input"),
             citySelector = element("#city"),
             inputCityWindow = element("#react-select-4-input"),
-            stateCityVaueSelector = element(".css-26l3qy-menu"),
             submitButton = element("#submit");
     CalendarComponent calendarComponent = new CalendarComponent();
 
@@ -35,13 +34,13 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage removeBanners() {
+/*    public RegistrationPage removeBanners() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
 
         return this;
     }
-
+*/
     public RegistrationPage setFirstName (String value) {
         firstNameInput.setValue(value);
 
@@ -113,16 +112,16 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage doSubmit() {
-        submitButton.scrollTo();
-        submitButton.click();
+    public RegistrationPage setDateOfbirth(String day, String month, String year) {
+        setDateOfBirth.click();
+        calendarComponent.calendarSetDate(day, month, year);
 
         return this;
     }
 
-    public RegistrationPage setDateOfbirth(String day, String month, String year) {
-        setDateOfBirth.click();
-        calendarComponent.calendarSetDate(day, month, year);
+    public RegistrationPage doSubmit() {
+        submitButton.scrollTo();
+        submitButton.click();
 
         return this;
     }

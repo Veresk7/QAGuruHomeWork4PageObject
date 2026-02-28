@@ -1,4 +1,4 @@
-package TextBoxPageObject.Pages.Components;
+package textboxpageobject.pages.components;
 
 import static com.codeborne.selenide.Selenide.element;
 

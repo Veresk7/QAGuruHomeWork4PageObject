@@ -1,10 +1,10 @@
-package TextBoxPageObject.Tests;
+package textboxpageobject.tests;
 
-import TextBoxPageObject.Pages.Components.ResultFormComponent;
-import TextBoxPageObject.Pages.RegistrationPage;
+import textboxpageobject.pages.components.ResultFormComponent;
+import textboxpageobject.pages.RegistrationPage;
 import org.junit.jupiter.api.Test;
 
-public class TextBoxTests extends TextBoxPageObject.Tests.TestBase {
+public class TextBoxTests extends textboxpageobject.tests.TestBase {
     RegistrationPage testPage = new RegistrationPage();
     ResultFormComponent modalWindowTestCheck = new ResultFormComponent();
 

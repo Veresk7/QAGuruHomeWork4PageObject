@@ -1,4 +1,4 @@
-package TextBoxPageObject.Tests;
+package textboxpageobject.tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
@@ -8,7 +8,7 @@ import org.junit.jupiter.api.BeforeAll;
 public class TestBase {
 
     @BeforeAll
-    static void StartTest() {
+    static void setUp() {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browser = "chrome";
         Configuration.browserSize = "1920x1080";
