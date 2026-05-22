@@ -10,15 +10,15 @@ public class TextBoxTests extends textboxpageobject.tests.TestBase {
 
     @Test
     void successfulAllFieldsFillCheck() {
-        testPage.openPage()
-                //.removeBanners() /Скрипт отключен, т.к. блокирует прохождения теста
+        testPage
+                .openPage()
+                .checkFormName("Student Registration Form")
                 .setFirstName("Guns")
                 .setLastName("'n Roses")
                 .setEmail("one@two.com")
                 .setGender("Male")
                 .setPhoneNumber("8946146168")
                 .setDateOfbirth("01", "September", "1999")
-                //.removeBanners()
                 .setSubject("Hi")
                 .setHobbies("Sports")
                 .uploadTestPicture("example_image_hw3.jpg")
@@ -26,7 +26,11 @@ public class TextBoxTests extends textboxpageobject.tests.TestBase {
                 .chooseState("Uttar Pradesh")
                 .chooseCity("Agra")
                 .doSubmit();
-        modalWindowTestCheck.checkResult("Student Name", "Guns 'n Roses")
+
+        modalWindowTestCheck
+                .modalDialogOpen()
+                .modalDialogName("Thanks for submitting the form")
+                .checkResult("Student Name", "Guns 'n Roses")
                 .checkResult("Student Email", "one@two.com")
                 .checkResult("Gender", "Male")
                 .checkResult("Mobile", "8946146168")
@@ -40,15 +44,20 @@ public class TextBoxTests extends textboxpageobject.tests.TestBase {
 
     @Test
     void fillingInOnlyNecessaryFields() {
-        testPage.openPage()
-                //.removeBanners() /Скрипт отключен, т.к. блокирует прохождения теста
+        testPage
+                .openPage()
+                .checkFormName("Student Registration Form")
                 .setFirstName("Guns")
                 .setLastName("'n Roses")
                 .setGender("Male")
                 .setPhoneNumber("8946146168")
                 .setDateOfbirth("01", "September", "2000")
                 .doSubmit();
-        modalWindowTestCheck.checkResult("Student Name", "Guns 'n Roses")
+
+        modalWindowTestCheck
+                .modalDialogOpen()
+                .modalDialogName("Thanks for submitting the form")
+                .checkResult("Student Name", "Guns 'n Roses")
                 .checkResult("Gender", "Male")
                 .checkResult("Mobile", "8946146168")
                 .checkResult("Date of Birth", "01 September,2000");
@@ -57,13 +66,16 @@ public class TextBoxTests extends textboxpageobject.tests.TestBase {
 
     @Test
     void negativTest() {
-        testPage.openPage()
-                // .removeBanners() /Скрипт отключен, т.к. блокирует прохождения теста
+        testPage
+                .openPage()
+                .checkFormName("Student Registration Form")
                 .setFirstName("Guns")
                 .setLastName("'n Roses")
                 .setGender("Male")
                 .doSubmit();
-        modalWindowTestCheck.checkResult("negativeCheck");
+
+        modalWindowTestCheck
+                .checkResult("negativeCheck");
 
     }
 

@@ -1,11 +1,16 @@
 package textboxpageobject.pages.components;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
+import com.codeborne.selenide.SelenideElement;
+import textboxpageobject.pages.RegistrationPage;
+
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.element;
 
 public class ResultFormComponent {
+    private final SelenideElement
+        modalDialog = element(".modal-dialog"),
+        modalDialogName = element(".modal-title");
 
     public ResultFormComponent checkResult(String fieldName, String checkValue) {
         element(".table-responsive").$(byText(fieldName)).parent().shouldHave(text(checkValue));
@@ -17,6 +22,19 @@ public class ResultFormComponent {
         if(value.equals("negativeCheck")) {
             element(".modal-dialog").shouldNotBe(visible);
         }
+
+        return this;
+    }
+
+
+    public ResultFormComponent modalDialogOpen () {
+        modalDialog.should(appear);
+
+        return this;
+    }
+
+    public ResultFormComponent modalDialogName (String value) {
+        modalDialogName.shouldHave(text(value));
 
         return this;
     }

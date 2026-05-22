@@ -3,11 +3,14 @@ package textboxpageobject.pages;
 import textboxpageobject.pages.components.CalendarComponent;
 import com.codeborne.selenide.SelenideElement;
 
+import static com.codeborne.selenide.Condition.appear;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationPage {
     private final SelenideElement
+            registrationFormName = element(".practice-form-wrapper"),
             firstNameInput = element("#firstName"),
             lastNameInput = element("#lastName"),
             emailInput = element("#userEmail"),
@@ -23,6 +26,8 @@ public class RegistrationPage {
             citySelector = element("#city"),
             inputCityWindow = element("#react-select-4-input"),
             submitButton = element("#submit");
+
+
     CalendarComponent calendarComponent = new CalendarComponent();
 
     public RegistrationPage openPage() {
@@ -41,6 +46,12 @@ public class RegistrationPage {
         return this;
     }
 */
+    public RegistrationPage checkFormName(String value) {
+        registrationFormName.shouldHave(text(value));
+
+        return this;
+    }
+
     public RegistrationPage setFirstName (String value) {
         firstNameInput.setValue(value);
 
