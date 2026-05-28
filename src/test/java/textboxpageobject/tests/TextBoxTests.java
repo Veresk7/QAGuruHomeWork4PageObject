@@ -13,8 +13,8 @@ public class TextBoxTests extends textboxpageobject.tests.TestBase {
         testPage
                 .openPage()
                 .checkFormName("Student Registration Form")
-                .setFirstName("Guns")
-                .setLastName("'n Roses")
+                .setFirstName("Sergei")
+                .setLastName("Petrov")
                 .setEmail("one@two.com")
                 .setGender("Male")
                 .setPhoneNumber("8946146168")
@@ -30,7 +30,7 @@ public class TextBoxTests extends textboxpageobject.tests.TestBase {
         modalWindowTestCheck
                 .modalDialogOpen()
                 .modalDialogName("Thanks for submitting the form")
-                .checkResult("Student Name", "Guns 'n Roses")
+                .checkResult("Student Name", "Sergei Petrov")
                 .checkResult("Student Email", "one@two.com")
                 .checkResult("Gender", "Male")
                 .checkResult("Mobile", "8946146168")
@@ -47,8 +47,8 @@ public class TextBoxTests extends textboxpageobject.tests.TestBase {
         testPage
                 .openPage()
                 .checkFormName("Student Registration Form")
-                .setFirstName("Guns")
-                .setLastName("'n Roses")
+                .setFirstName("Sergei")
+                .setLastName("Petrov")
                 .setGender("Male")
                 .setPhoneNumber("8946146168")
                 .setDateOfbirth("01", "September", "2000")
@@ -57,7 +57,7 @@ public class TextBoxTests extends textboxpageobject.tests.TestBase {
         modalWindowTestCheck
                 .modalDialogOpen()
                 .modalDialogName("Thanks for submitting the form")
-                .checkResult("Student Name", "Guns 'n Roses")
+                .checkResult("Student Name", "Sergei Petrov")
                 .checkResult("Gender", "Male")
                 .checkResult("Mobile", "8946146168")
                 .checkResult("Date of Birth", "01 September,2000");
@@ -69,8 +69,8 @@ public class TextBoxTests extends textboxpageobject.tests.TestBase {
         testPage
                 .openPage()
                 .checkFormName("Student Registration Form")
-                .setFirstName("Guns")
-                .setLastName("'n Roses")
+                .setFirstName("Sergei")
+                .setLastName("Petrov")
                 .setGender("Male")
                 .doSubmit();
 

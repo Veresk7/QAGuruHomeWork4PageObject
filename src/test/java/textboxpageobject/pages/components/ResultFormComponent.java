@@ -9,18 +9,19 @@ import static com.codeborne.selenide.Selenide.element;
 
 public class ResultFormComponent {
     private final SelenideElement
+        tableResponsive = element(".table-responsive"),
         modalDialog = element(".modal-dialog"),
         modalDialogName = element(".modal-title");
 
     public ResultFormComponent checkResult(String fieldName, String checkValue) {
-        element(".table-responsive").$(byText(fieldName)).parent().shouldHave(text(checkValue));
+        tableResponsive.$(byText(fieldName)).parent().shouldHave(text(checkValue));
 
         return this;
     }
 
     public ResultFormComponent checkResult(String value) {
         if(value.equals("negativeCheck")) {
-            element(".modal-dialog").shouldNotBe(visible);
+            modalDialog.shouldNotBe(visible);
         }
 
         return this;

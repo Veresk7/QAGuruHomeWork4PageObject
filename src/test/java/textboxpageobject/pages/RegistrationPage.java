@@ -25,7 +25,9 @@ public class RegistrationPage {
             inputStateWindow = element("#react-select-3-input"),
             citySelector = element("#city"),
             inputCityWindow = element("#react-select-4-input"),
-            submitButton = element("#submit");
+            submitButton = element("#submit"),
+            subjectOutocompleteOption = element(".subjects-auto-complete__option"),
+            subjectOutocompleteMenuList = element(".subjects-auto-complete__menu-list");
 
 
     CalendarComponent calendarComponent = new CalendarComponent();
@@ -84,8 +86,8 @@ public class RegistrationPage {
 
     public RegistrationPage setSubject(String value) {
         subjectsInput.setValue(value);
-        element(".subjects-auto-complete__option").scrollTo();
-        element(".subjects-auto-complete__menu-list").$(byText("Hindi")).click();
+        subjectOutocompleteOption.scrollTo();
+        subjectOutocompleteMenuList.$(byText("Hindi")).click();
 
         return this;
     }
